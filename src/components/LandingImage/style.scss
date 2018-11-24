@@ -1,0 +1,40 @@
+@import "../../scss/colors";
+
+.c-landing {
+        
+        height: 100%;
+
+        &__image {
+            /* Full height */
+            height: inherit; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+
+        &__content {
+            /* Position text in the middle of the page/image */
+
+            color: white;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+
+            h1, h2, h3, h4, h5, h6, p  {
+                letter-spacing: 2px;
+                font-weight:    100;
+            }
+  
+        }
+}

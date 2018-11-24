@@ -1,10 +1,12 @@
 import * as React from 'react'
+import "./style.scss"
 
 export enum InputType {
     Email       = "email",
     Password    = "password",
     Text        = "text",
 }
+
 
 interface ComponentState {
     value: string;
@@ -14,7 +16,7 @@ interface ComponentProps {
     type:         InputType;
     name:         string;
     placeholder?: string;
-    onChange:     (e: React.FormEvent<HTMLInputElement>) => void;
+    onChange?:     (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
 export class Input extends React.Component<ComponentProps, ComponentState> {
@@ -45,7 +47,9 @@ export class Input extends React.Component<ComponentProps, ComponentState> {
         this.setState({
             value: event.currentTarget.value
         });
-        this.props.onChange(event);
+
+        if (this.props.onChange)
+            this.props.onChange(event);
     }
 
     private getPlaceholder() {

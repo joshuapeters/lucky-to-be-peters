@@ -69,6 +69,16 @@ body {
   width: 100%;
 }
 
+.gatsby {
+  height: 100%;
+  width: 100%;
+
+  div[role="group"] {
+    height: 100%;
+    width: 100%;
+  }
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

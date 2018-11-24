@@ -26,13 +26,10 @@ export default class HTML extends React.Component {
         <body>
           <div
             id="___gatsby"
+            className="gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <script
-            async
-            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
         </body>
       </html>
     )
