@@ -16,7 +16,9 @@ interface ComponentProps {
     type:         InputType;
     name:         string;
     placeholder?: string;
-    onChange?:     (e: React.FormEvent<HTMLInputElement>) => void;
+    onChange?:    (e: React.FormEvent<HTMLInputElement>) => void;
+    cssClassName?: string;
+    required?:      boolean;
 }
 
 export class Input extends React.Component<ComponentProps, ComponentState> {
@@ -31,14 +33,16 @@ export class Input extends React.Component<ComponentProps, ComponentState> {
     }
 
     public render() {
+        const className =  this.props.cssClassName ? "c-input " + this.props.cssClassName : "c-input";
         return (
-            <div className = "c-input">
+            <div className = { className }>
                 <input 
+                    required    = { this.props.required }
                     type        = { this.props.type } 
                     name        = { this.props.name } 
                     onChange    = { this.handleChange } 
                     value       = { this.state.value }
-                    placeholder = { this.getPlaceholder() }/>
+                    placeholder = { this.getPlaceholder() } />
             </div>
         );
     }
