@@ -18,7 +18,7 @@ interface ComponentProps {
     placeholder?: string;
     onChange?:    (e: React.FormEvent<HTMLInputElement>) => void;
     cssClassName?: string;
-    required?:      boolean;
+    required?:     boolean;
 }
 
 export class Input extends React.Component<ComponentProps, ComponentState> {
