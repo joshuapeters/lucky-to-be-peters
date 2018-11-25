@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import emergence from 'emergence.js'
 
@@ -8,6 +9,7 @@ import 'prismjs/themes/prism.css'
 import 'scss/gatstrap.scss'
 import 'animate.css/animate.css'
 import 'font-awesome/css/font-awesome.css'
+import Input from 'components/Input/index'
 
 class Layout extends React.Component {
   componentDidMount() {
