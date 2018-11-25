@@ -29,9 +29,8 @@ export class Button extends React.Component<ComponentProps, ComponentState> {
     }
 
     private handleClick(event){
-        event.preventDefault();
-
         this.props.onClick(event);
+        return false;
     }
 
 
