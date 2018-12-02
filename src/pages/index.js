@@ -13,7 +13,7 @@ const BlogIndex = ({ location }) => {
       <LandingSection imageUrl={imageUrl}>
         <h1>May 25th, 2019</h1>
         <h2>#luckytobepeters</h2>
-        <EmailSignup />
+        <EmailSignup formText="Enter your email below to receive updates about our big day." />
       </LandingSection>
     </Layout>
   )
