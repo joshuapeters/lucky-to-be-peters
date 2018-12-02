@@ -16,7 +16,7 @@ interface ComponentProps {
     type:         InputType;
     name:         string;
     placeholder?: string;
-    onChange?:    (e: React.FormEvent<HTMLInputElement>) => void;
+    onChange?:    (name: string, value: string) => void;
     cssClassName?: string;
     required?:     boolean;
 }
@@ -53,7 +53,7 @@ export class Input extends React.Component<ComponentProps, ComponentState> {
         });
 
         if (this.props.onChange)
-            this.props.onChange(event);
+            this.props.onChange(this.props.name, event.currentTarget.value);
     }
 
     private getPlaceholder() {
