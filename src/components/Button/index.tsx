@@ -7,6 +7,7 @@ interface ComponentState {
 interface ComponentProps {
     text: string;
     name: string;
+    type?: string;
     onClick: (event) => void;
 }
 
@@ -21,7 +22,10 @@ export class Button extends React.Component<ComponentProps, ComponentState> {
     public render() {
         return (
             <div className = "c-button">
-                <button onClick = { this.handleClick } name = { this.props.name }>
+                <button
+                    type    = { this.props.type } 
+                    onClick = { this.handleClick } 
+                    name    = { this.props.name }>
                     { this.props.text }
                 </button>
             </div>
