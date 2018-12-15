@@ -30,7 +30,8 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <form className = { className + "__form"} name = "email-signup" data-netlify = "true" method="post">
+                <form className = { className + "__form"} name = "email-signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="bot-field" />
                     <Input 
                         type            = { InputType.Text } 
                         name            = "firstName" 
