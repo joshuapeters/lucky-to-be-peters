@@ -3,7 +3,7 @@ import "./style.scss"
 import { Input, InputType } from 'components/Input/index';
 import { Button } from 'components/Button/index';
 import { NetlifyCaptcha } from 'components/NetlifyCaptcha/index';
-import { navigateTo } from 'node_modules/gatsby-link/index';
+import { navigateTo } from 'gatsby-link';
 
 interface ComponentState {
     email:      string;
