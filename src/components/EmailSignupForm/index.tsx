@@ -3,8 +3,6 @@ import "./style.scss"
 import { Input, InputType } from 'components/Input/index';
 import { Button } from 'components/Button/index';
 import { NetlifyCaptcha } from 'components/NetlifyCaptcha/index';
-import NetlifyForm from 'react-netlify-form';
-
 
 interface ComponentState {
     email:      string;
