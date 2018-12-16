@@ -31,7 +31,7 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <NetlifyForm name='Contact Form'>
+                <NetlifyForm name='email-signup'>
                     {({ loading, error, success }) => (
                     <div>
                         {loading &&
