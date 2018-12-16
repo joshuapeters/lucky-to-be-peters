@@ -6,7 +6,7 @@ interface ComponentState {
 
 interface ComponentProps {
     text: string;
-    name: string;
+    name?: string;
     type?: string;
     onClick: (event) => void;
 }

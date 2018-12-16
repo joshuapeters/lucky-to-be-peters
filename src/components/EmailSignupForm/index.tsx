@@ -3,11 +3,14 @@ import "./style.scss"
 import { Input, InputType } from 'components/Input/index';
 import { Button } from 'components/Button/index';
 import { NetlifyCaptcha } from 'components/NetlifyCaptcha/index';
+import { navigateTo } from 'gatsby-link';
+import { string } from 'prop-types';
 
 interface ComponentState {
     email:      string;
     firstName:  string;
     lastName:   string;
+    botField: string;
 }
 
 interface ComponentProps {
@@ -22,6 +25,7 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
 
         this.onFieldUpdate      = this.onFieldUpdate.bind(this);
         this.onSubscribeClick   = this.onSubscribeClick.bind(this);
+        this.handleBotFieldChange       = this.handleBotFieldChange.bind(this);
     }
 
     public render() {
@@ -29,8 +33,8 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <form name="contact" method="post" action="/registered" data-netlify="true" data-netlify-honeypot="bot-field">
-                    <input type="hidden" name="bot-field" />
+                <form name="contact" method="post" action="/registered" data-netlify="true" data-netlify-honeypot="botField" onSubmit={this.handleSubmit}>
+                    <input type="hidden" name="botField" onChange={this.handleBotFieldChange}/>
                     <input type="hidden" name="form-name" value="contact" />
                     <div className = {className + "__form"}>
                         <Input 
@@ -54,7 +58,6 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
                             onChange        = {this.onFieldUpdate}/>
                         <Button 
                             type    = "submit"
-                            name    = "email-submit" 
                             text    = "Subscribe" 
                             onClick = { this.onSubscribeClick } />
                         {
@@ -67,12 +70,37 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         );
     }
 
+    private handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: this.encode({
+            "form-name": form.getAttribute("name"),
+            ...this.state
+          })
+        })
+          .then(() => navigateTo(form.getAttribute("action")))
+          .catch(error => alert(error));
+      };
+    
+      private encode(data) {
+        return Object.keys(data)
+          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+      }
+
     private onFieldUpdate(fieldId: string, value: any) {
         var newState = {...this.state} as ComponentState;
         newState[fieldId] = value;
 
         this.setState(newState);
     }
+
+    private handleBotFieldChange = e => {
+        this.setState({ botField: e.target.value });
+      };
 
     private onSubscribeClick(event) {
         console.log("We're submitting now!")
