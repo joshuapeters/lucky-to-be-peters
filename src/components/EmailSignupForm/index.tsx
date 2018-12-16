@@ -31,24 +31,10 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <NetlifyForm name='email-signup'>
-                    {({ loading, error, success }) => (
-                    <div>
-                        {loading &&
-                            <div>Sending...</div>
-                        }
-                        {error &&
-                            <div>Your information was not sent. Please contact us at jgpeters717@gmail.com</div>
-                        }
-                        {success &&
-                            <div>Thank you for your interest in our big day! We'll contact you soon!</div>
-                        }
-                        {!loading && !success &&
-                            this.getForm(className)                        
-                        }
-                    </div>
-                    )}
-                </NetlifyForm>
+                <form method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="bot-field" />
+                    { this.getForm(className) }
+                </form>
             </div>
         );
     }
