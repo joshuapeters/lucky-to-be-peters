@@ -1,5 +1,6 @@
 @import "../../scss/colors";
-
+$brightness : 0.3;
+$blur : 2px;
 .c-landing {
         
         height: 100%;
@@ -9,13 +10,14 @@
             height: inherit; 
 
             /* Center and scale the image nicely */
+            background-image: url(./background.png);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
 
             /* Add the blur effect */
-            filter: blur(8px);
-            -webkit-filter: blur(8px);
+            filter: blur($blur) brightness($brightness);
+            -webkit-filter: blur($blur) brightness($brightness);
         }
 
         &__content {

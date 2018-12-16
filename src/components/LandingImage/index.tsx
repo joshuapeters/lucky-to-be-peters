@@ -2,7 +2,6 @@ import * as React from "react"
 import "./style.scss"
 
 interface ComponentProps {
-    imageUrl?: string;
 }
 
 interface ComponentState {
@@ -16,9 +15,9 @@ export class LandingSection extends React.Component<ComponentProps, ComponentSta
     }
 
     public render() {
-        const backgroundStyle = this.props.imageUrl ? {
-            backgroundImage: this.props.imageUrl ? `url(${this.props.imageUrl})` : ''
-        } : null;
+        const backgroundStyle = {
+            backgroundImage: './background.png'
+        };
         const className = "c-landing";
         return(
             <div className = { className }>
