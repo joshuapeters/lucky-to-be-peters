@@ -3,6 +3,7 @@ import "./style.scss"
 import { Input, InputType } from 'components/Input/index';
 import { Button } from 'components/Button/index';
 import { NetlifyCaptcha } from 'components/NetlifyCaptcha/index';
+import NetlifyForm from 'react-netlify-form';
 
 
 interface ComponentState {
@@ -30,37 +31,59 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <form className = { className + "__form"} name = "email-signup" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                    <input type="hidden" name="bot-field" />
-                    <Input 
-                        type            = { InputType.Text } 
-                        name            = "firstName" 
-                        placeholder     = "First Name" 
-                        required        = { true } 
-                        onChange        = {this.onFieldUpdate}/>
-                    <Input 
-                        type            = { InputType.Text } 
-                        name            = "lastName" 
-                        placeholder     = "Last Name" 
-                        required        = { true } 
-                        onChange        = {this.onFieldUpdate}/>
-                    <Input 
-                        type            = { InputType.Email } 
-                        name            = "email" 
-                        placeholder     = "Email Address" 
-                        cssClassName    = "last" 
-                        required        = { true } 
-                        onChange        = {this.onFieldUpdate}/>
-                    <Button 
-                        type    = "submit"
-                        name    = "email-submit" 
-                        text    = "Subscribe" 
-                        onClick = { this.onSubscribeClick } />
-                    {
-                        this.props.hasCaptcha &&
-                        <NetlifyCaptcha/>
-                    }
-                </form>
+                <NetlifyForm name='Contact Form'>
+                    {({ loading, error, success }) => (
+                    <div>
+                        {loading &&
+                            <div>Sending...</div>
+                        }
+                        {error &&
+                            <div>Your information was not sent. Please contact us at jgpeters717@gmail.com</div>
+                        }
+                        {success &&
+                            <div>Thank you for your interest in our big day! We'll contact you soon!</div>
+                        }
+                        {!loading && !success &&
+                            this.getForm(className)                        
+                        }
+                    </div>
+                    )}
+                </NetlifyForm>
+            </div>
+        );
+    }
+
+    private getForm(className: string) {
+        return (
+            <div className = {className + "__form"}>
+                <Input 
+                    type            = { InputType.Text } 
+                    name            = "firstName" 
+                    placeholder     = "First Name" 
+                    required        = { true } 
+                    onChange        = {this.onFieldUpdate}/>
+                <Input 
+                    type            = { InputType.Text } 
+                    name            = "lastName" 
+                    placeholder     = "Last Name" 
+                    required        = { true } 
+                    onChange        = {this.onFieldUpdate}/>
+                <Input 
+                    type            = { InputType.Email } 
+                    name            = "email" 
+                    placeholder     = "Email Address" 
+                    cssClassName    = "last" 
+                    required        = { true } 
+                    onChange        = {this.onFieldUpdate}/>
+                <Button 
+                    type    = "submit"
+                    name    = "email-submit" 
+                    text    = "Subscribe" 
+                    onClick = { this.onSubscribeClick } />
+                {
+                    this.props.hasCaptcha &&
+                    <NetlifyCaptcha/>
+                }
             </div>
         );
     }
