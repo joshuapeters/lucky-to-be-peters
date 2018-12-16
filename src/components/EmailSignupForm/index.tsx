@@ -3,8 +3,6 @@ import "./style.scss"
 import { Input, InputType } from 'components/Input/index';
 import { Button } from 'components/Button/index';
 import { NetlifyCaptcha } from 'components/NetlifyCaptcha/index';
-import { navigateTo } from 'gatsby-link';
-import { string } from 'prop-types';
 
 interface ComponentState {
     email:      string;
@@ -33,7 +31,7 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
         return (
             <div className = { className }>
                 <p>{this.props.formText}</p>
-                <form name="contact" method="post" action="/registered" data-netlify="true" data-netlify-honeypot="botField" onSubmit={this.handleSubmit}>
+                <form name="contact" method="post" action="/registered" data-netlify="true" data-netlify-honeypot="botField">
                     <input type="hidden" name="botField" onChange={this.handleBotFieldChange}/>
                     <input type="hidden" name="form-name" value="contact" />
                     <div className = {className + "__form"}>
@@ -69,27 +67,6 @@ export class EmailSignup extends React.Component<ComponentProps, ComponentState>
             </div>
         );
     }
-
-    private handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: this.encode({
-            "form-name": form.getAttribute("name"),
-            ...this.state
-          })
-        })
-          .then(() => navigateTo(form.getAttribute("action")))
-          .catch(error => alert(error));
-      };
-    
-      private encode(data) {
-        return Object.keys(data)
-          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-          .join("&");
-      }
 
     private onFieldUpdate(fieldId: string, value: any) {
         var newState = {...this.state} as ComponentState;
