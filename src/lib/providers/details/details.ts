@@ -1,4 +1,5 @@
 import { LocationDetail } from "components/Details/DetailCard/index";
+import './img'
 
 let _locationDetails = [
     {
