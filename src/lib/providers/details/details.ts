@@ -1,17 +1,29 @@
-import { LocationDetail } from './../../../components/DetailCard/index';
+import { LocationDetail } from "components/Details/DetailCard/index";
 
 let _locationDetails = [
     {
-        location: "Commonwealth On Queen Street",
-        infoText: "",
+        location: "Ceremony",
+        infoText: "Join us as we tie the knot in Community Menonite Church of Lancaster's beautiful sanctuary.",
+        imageUrl: "./img/cmcl.PNG",
+        directionsUrl:  "https://goo.gl/maps/SnpV4zJW4QU2",
+        websiteUrl:     "https://communitymennonite.org/",
+        contactUrl:     "https://communitymennonite.org/contact-us/"
     } as LocationDetail,
     {
-        location: "Community Menonite Church Of Lancaster",
-        infoText: "",
+        location: "Private Reception",
+        infoText: "For select family and friends, join us afterwards for some delicious vegan dishes and mingling at Commonwealth On Queen!",
+        imageUrl: "./img/commonwealth.jpg",
+        directionsUrl:  "https://goo.gl/maps/D3mL81hxAHD2",
+        websiteUrl:     "https://commonwealthonqueen.com/",
+        contactUrl:     "https://commonwealthonqueen.com/contact/"
     } as LocationDetail,
     {
-        location: "Federal Taphouse",
-        infoText: "",
+        location: "Afterparty",
+        infoText: "If we couldn't fit you into the private reception, come grab a slice and a drink with us later at Federal Taphouse in Lancaster!",
+        imageUrl: "./img/federaltap.jpg",
+        directionsUrl:  "https://goo.gl/maps/Ab1DYToosvL2",
+        websiteUrl:     "https://www.federaltaphouse.com/lancaster-pa/",
+        contactUrl:     "https://www.federaltaphouse.com/lancaster-pa/directions-and-hours/"
     } as LocationDetail,
 ] as LocationDetail[];
 

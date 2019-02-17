@@ -1,6 +1,6 @@
 import { Details }          from './details';
 import { IProvider }        from "../../interfaces/signup-provider";
-import { LocationDetail }   from 'components/DetailCard/index';
+import { LocationDetail }   from 'components/Details/DetailCard/index';
 
 
 export class LocationDetailProvider implements IProvider<LocationDetail>{
