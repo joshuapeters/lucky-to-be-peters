@@ -1,11 +1,13 @@
 import { LocationDetail } from "components/Details/DetailCard/index";
-import './img'
+import './img/cmcl.png'
+import './img/commonwealth.jpg'
+import './img/federaltap.jpg'
 
 let _locationDetails = [
     {
         location: "Ceremony",
         infoText: "Join us as we tie the knot in Community Menonite Church of Lancaster's beautiful sanctuary.",
-        imageUrl: "./img/cmcl.PNG",
+        imageUrl: "./img/cmcl.png",
         directionsUrl:  "https://goo.gl/maps/SnpV4zJW4QU2",
         websiteUrl:     "https://communitymennonite.org/",
         contactUrl:     "https://communitymennonite.org/contact-us/"
