@@ -1,0 +1,71 @@
+@import 'scss/colors.scss';
+
+.c-detail-card {
+    box-shadow:         0 4px 8px 0 rgba(0,0,0,0.2);
+    transition:         0.3s;
+    border-radius:      5px;
+    display:            inline-flex;
+    background-color:   rgba(0, 0, 0, 0.3);
+    margin-top:         20px;
+
+    &:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        background-color:   rgba(0, 0, 0, .7);
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 0;
+        @media only screen and (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2px 16px;
+        width: 100%;
+
+        &__links {
+            width: 100%;
+            display: inline-flex;
+            justify-content: space-around;
+            margin: 20px 5px;
+            font-style: italic;
+
+            @media only screen and (max-width: 600px) {
+                margin-top: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+
+            a {
+                font-size: 16px;
+                line-height: 1.5;
+                letter-spacing: 2px;
+                font-weight: 100;
+                color: $off-white;
+                text-decoration: underline;
+
+                &:hover {
+                    color: $green;
+                }
+            }
+        }
+
+        p {
+            overflow: hidden;
+            max-height: 150px;
+
+            @media only screen and (max-width: 600px) {
+                display: none;
+            }
+        }
+
+
+    }
+}
