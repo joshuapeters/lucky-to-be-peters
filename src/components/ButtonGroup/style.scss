@@ -1,0 +1,24 @@
+.c-button-group {
+    margin-top: 10px;
+    width: 33%;
+    display: inline-flex;
+    justify-content: center;
+
+    button {
+        margin: 10px;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        height: 33%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    
+        button {
+            width: 100%;
+            margin: 10px;
+        }
+    }
+}
