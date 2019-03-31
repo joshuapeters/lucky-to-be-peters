@@ -5,6 +5,8 @@ import "./style.scss"
 export interface LocationDetail {
     location:       string;
     infoText:       string;
+    infoSubtext:    string;
+    timeFrame:      string;
     imageUrl:       string;
     directionsUrl:  string;
     websiteUrl:     string;
@@ -26,6 +28,9 @@ export class DetailCard extends React.Component<ComponentProps, ComponentState> 
 
     public render() {
         const className = "c-detail-card"
+        const displaySubText =  this.props.locationDetail.infoSubtext != "" && 
+                                this.props.locationDetail.infoSubtext != null;
+
         return (
             <div className = { className }>
                 {/* card image */}
@@ -35,6 +40,12 @@ export class DetailCard extends React.Component<ComponentProps, ComponentState> 
                     {/* header and infof */}
                     <h1>{ this.props.locationDetail.location }</h1>
                     <p>{ this.props.locationDetail.infoText }</p>
+                    {
+                        displaySubText &&
+                        <p className = { className + "__container -mobile" }>{this.props.locationDetail.infoSubtext}</p>
+                    }    
+                    <p className = { className + "__container -mobile" }>{this.props.locationDetail.timeFrame}</p>
+                    
                     
                     {/* links */}
                     <div className = { className + "__container__links" }>

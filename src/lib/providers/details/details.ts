@@ -26,7 +26,7 @@ let _locationDetails = [
     } as LocationDetail,
     {
         location: "Afterparty",
-        infoText: "If we couldn't fit you into the private reception, come grab a slice and a drink with us later at Federal Taphouse in Lancaster!",
+        infoText: "Come grab a slice and a drink with us later at Federal Taphouse in Lancaster!",
         infoSubtext: "Light refreshments served with a cash bar available.",
         timeFrame: "6pm - 8pm",
         imageUrl: federaltap,
